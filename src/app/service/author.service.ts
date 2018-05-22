@@ -16,6 +16,11 @@ export class AuthorService {
    
       return this._shareService.httpGet(Config.URL+this.URI+"/"+searchname+"/"+skip+"/"+pagesize);
   }
+  public getTopThreeAuthor(searchname:string ,skip:number, pagesize:number):Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/gettopthree");
+  }
   public getAllAuthor():Observable<any[]>
   {
    

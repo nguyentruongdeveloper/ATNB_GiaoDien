@@ -4,13 +4,13 @@
   <div class="container">
     <div id="responsive-nav">
       <!-- category nav -->
-      <div class="category-nav">
+      <!-- <div class="category-nav">
         <span class="category-header">Categories <i class="fa fa-list"></i></span>
         <ul class="category-list">
           <li *ngFor="let category of arrCategory; let i = index"><a href="#">{{category.CategoryName}}</a></li>
           
         </ul>
-      </div>
+      </div>  -->
       <!-- /category nav -->
 
       <!-- menu nav -->
@@ -213,18 +213,21 @@
          
           <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Category <i class="fa fa-caret-down"></i></a>
             <ul class="custom-menu">
-              <li *ngFor="let category of arrCategory; let i = index"><a href="index.html">{{category.CategoryName}}</a></li>
+              <li *ngFor="let category of arrCategory; let i = index">
+                <!-- <a [routerLink]="['/list-book']" [queryParams]="{CategoryID:category.CategoryID,Type:Category }">{{category.CategoryName}}</a> -->
+                <a [routerLink]="['/list-book']" [queryParams]="{CategoryID:category.CategoryID,Type:'Category' }"   replaceUrl>{{category.CategoryName}}</a>
+              </li>
              
             </ul>
           </li>
           <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Author <i class="fa fa-caret-down"></i></a>
             <ul class="custom-menu">
-              <li *ngFor="let author of arrAuthor; let i = index"><a href="index.html">{{author.AuthorName}}</a></li>
+              <li *ngFor="let author of arrAuthor; let i = index"><a [routerLink]="['/list-book']" [queryParams]="{AuthorID:author.AuthorID , Type:'Author'}" replaceUrl>{{author.AuthorName}}</a></li>
             </ul>
           </li>
           <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Publisher<i class="fa fa-caret-down"></i></a>
             <ul class="custom-menu">
-              <li *ngFor="let publisher of arrPublisher; let i = index"><a href="index.html">{{publisher.PublisherName}}</a></li>
+              <li *ngFor="let publisher of arrPublisher; let i = index"><a [routerLink]="['/list-book']" [queryParams]="{PublisherID:publisher.PublisherID,Type:'Publisher' }" replaceUrl >{{publisher.PublisherName}}</a></li>
             </ul>
           </li>
         </ul>

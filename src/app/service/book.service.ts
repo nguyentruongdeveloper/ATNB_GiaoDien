@@ -8,6 +8,7 @@ import { Book } from '../model/book';
 export class BookService 
 {
   public URI:string ="book";
+  
   /**
    *
    */
@@ -18,6 +19,31 @@ export class BookService
   {
    
       return this._shareService.httpGet(Config.URL+this.URI+"/"+searchname+"/"+skip+"/"+pagesize);
+  }
+  public getNewBook():Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/getnewbook");
+  }
+  public getBookbyID(Id :number):Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/getbookbyid/"+Id);
+  }
+  public getBookByCategory(Id :number):Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/getbookbycategory/"+Id);
+  }
+  public getBookByAuthor(Id :number):Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/getbookbyauthor/"+Id);
+  }
+  public getBookByPublisher(Id :number):Observable<any[]>
+  {
+   
+      return this._shareService.httpGet(Config.URL+this.URI+"/getbookbypublisher/"+Id);
   }
   public getBookByName(searchname:string, skip:number, pagesize:number):Observable<any[]>
   {

@@ -13,27 +13,49 @@ import { ShareService } from './service/shareservice';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthorService } from './service/author.service';
 import { PublisherService } from './service/publisher.service';
+import { BookService } from './service/book.service';
+import { BookDetailComponent } from './components/book-detail/book-detail/book-detail.component';
+import { AppRoutingModule } from './app.routing';
+import { Routes, RouterModule } from '@angular/router';
+import { LayoutModule } from './components/layout/layout-template/layout.module';
+import { LayoutComponent } from './components/layout/layout-template/layout.component';
+import { IndexComponent } from './components/index/index/index.component';
+import { ListBookComponent } from './components/list-book/list-book.component';
+
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
     HeaderComponent,
     NavigationComponent,
+    IndexComponent,
     HomeComponent,
-    NewbookComponent,
-    SelectionComponent
+    SelectionComponent,
+    BookDetailComponent,
+    ListBookComponent
+   
+
+
+
   ],
   imports: [
+    LayoutModule,
     BrowserModule,
-    HttpClientModule
-  
+    HttpClientModule,
+   
+    RouterModule,
+    AppRoutingModule,
+
+
+
   ],
   providers: [
-    CategoryService,
-    AuthorService,
-    PublisherService,
-    ShareService
+   
   ],
   bootstrap: [AppComponent]
 })
